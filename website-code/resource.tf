@@ -24,21 +24,21 @@ resource "aws_s3_bucket_website_configuration" "bucket1" {
 }
 
 resource "aws_s3_object" "index" {
-  bucket = aws_s3_bucket.bucket1.id  # ✅ Corrected
+  bucket = aws_s3_bucket.bucket1.id  
   key    = "index.html"
   source = "index.html"
   content_type = "text/html"
 
-  depends_on = [aws_s3_bucket.bucket1]  # ✅ Ensure bucket is created first
+  depends_on = [aws_s3_bucket.bucket1]  
 }
 
 resource "aws_s3_object" "error" {
-  bucket = aws_s3_bucket.bucket1.id  # ✅ Corrected
+  bucket = aws_s3_bucket.bucket1.id  
   key    = "error.html"
   source = "error.html"
   content_type = "text/html"
 
-  depends_on = [aws_s3_bucket.bucket1]  # ✅ Ensure bucket is created first
+  depends_on = [aws_s3_bucket.bucket1]  
 }
 
 resource "aws_s3_bucket_policy" "public_read_access" {
